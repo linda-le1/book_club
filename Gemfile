@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'nyan-cat-formatter'
 end
 
 group :development do
