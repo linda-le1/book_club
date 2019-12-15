@@ -23,6 +23,16 @@ RSpec.describe "As a visitor", type: :feature do
                               pages: 400,
                               publication_year: "2001")
 
+  @neil = Author.create(name: "Neil Gaiman")
+
+  @terry= Author.create(name:"Terry Pritchett")
+
+  @book_5 = Book.create(title: "Good Omen",
+                              pages: 288,
+                              publication_year: "1990")
+
+  @book_5.authors << @neil
+  @book_5.authors << @terry
 end
 
   it "can visit the author show page from the book index and see list of books and stats" do
@@ -42,8 +52,19 @@ end
   expect(page).to_not have_content(@book_3.title)
   expect(page).to_not have_content(@book_4.title)
 
-  expect(page).to have_content("451.5 pages")
-  expect(page).to_not have_content("344 pages")
+  expect(page).to have_content("This author has written an average of 451.5 pages.")
+  expect(page).to_not have_content("This author has written an average of 344.0 pages.")
 
+  end
+
+  it "can see book info for one with multiple authors" do
+
+    visit "/authors/#{@neil.id}"
+    expect(page).to have_content(@book_5.title)
+    expect(page).to have_content("This author has written an average of 288.0 pages.")
+
+    visit "/authors/#{@terry.id}"
+    expect(page).to have_content(@book_5.title)
+    expect(page).to have_content("This author has written an average of 288.0 pages.")
   end
 end

@@ -24,3 +24,13 @@ book_3 = amy.books.create(title: "The Joy Luck Club",
 book_4 = amy.books.create(title: "The Bonesetter's Daughter",
                            pages: 400,
                            publication_year: "2001")
+
+neil = Author.create(name: "Neil Gaiman")
+terry= Author.create(name:"Terry Pritchett")
+
+book_5 = Book.create(title: "Good Omen",
+                            pages: 288,
+                            publication_year: "1990")
+
+book_5.authors << neil
+book_5.authors << terry

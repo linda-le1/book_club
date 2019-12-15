@@ -24,6 +24,17 @@ RSpec.describe "As a visitor", type: :feature do
                                pages: 400,
                                publication_year: "2001")
 
+   @neil = Author.create(name: "Neil Gaiman")
+
+   @terry= Author.create(name:"Terry Pritchett")
+
+   @book_5 = Book.create(title: "Good Omen",
+                               pages: 288,
+                               publication_year: "1990")
+
+   @book_5.authors << @neil
+   @book_5.authors << @terry
+
 end
 
   it "can see a list of all books and their attributes" do
@@ -57,6 +68,14 @@ end
       expect(page).to have_content("By #{@amy.name}")
       expect(page).to have_content("Number of Pages: #{@book_4.pages}")
       expect(page).to have_content("Published in #{@book_4.publication_year}")
+    end
+
+    within "#book-#{@book_5.id}" do
+      expect(page).to have_content(@book_5.title)
+      expect(page).to have_content("By #{@neil.name}")
+      expect(page).to have_content("By #{@terry.name}")
+      expect(page).to have_content("Number of Pages: #{@book_5.pages}")
+      expect(page).to have_content("Published in #{@book_5.publication_year}")
     end
 
   end

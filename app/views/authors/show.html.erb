@@ -2,4 +2,4 @@
 <p><%@author.books.each do |book|%>
   <%=book.title%></br>
   <%end%>
-This author has written an average of <%=@author.average_pages_written%> pages.</p>
+This author has written an average of <%=number_with_precision(@author.average_pages_written, precision: 1)%> pages.</p>
