@@ -25,17 +25,23 @@ RSpec.describe "As a visitor", type: :feature do
 
 end
 
-  it "can visit the author show page from the book index and see list of books and stats"
+  it "can visit the author show page from the book index and see list of books and stats" do
 
   visit "/books"
 
   click_on("#{@haruki.name}")
   expect(current_path).to eq("/authors/#{@haruki.id}")
 
-  expect(page).to have_content()
-  end
+  expect(page).to have_content(@haruki.name)
+  expect(page).to have_content(@amy.name)
 
-  Then I am taken to an Author Show Page where I see the author with that id including the author's:
-  - name
-  - the title of each book they have written
-  - the average number of pages for all of their books
+  expect(page).to have_content(@book_1.title)
+  expect(page).to have_content(@book_2.title)
+  expect(page).to_not have_content(@book_3.title)
+  expect(page).to_not have_content(@book_4.title)
+
+  expect(page).to have_content("451.5 pages")
+  expect(page).to_not have_content("344 pages")
+
+  end
+end
