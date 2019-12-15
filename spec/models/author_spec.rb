@@ -12,7 +12,7 @@ RSpec.describe Author, type: :model do
   end
 
   describe 'methods' do
-    it ".average_age" do
+    it ".average_pages_written" do
 
       @haruki = Author.create(name: "Haruki Murakami")
 
@@ -24,7 +24,7 @@ RSpec.describe Author, type: :model do
                                      pages:      296,
                                      publication_year:  "1987")
 
-      expect(Author.average_pages_wrriten).to eq(451.5)
+      expect(@haruki.average_pages_written).to eq(451.5)
 
     end
   end

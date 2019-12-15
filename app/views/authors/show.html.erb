@@ -1,5 +1,5 @@
-<center><h1><% @author.name %></h1></center>
+<center><h1><%= @author.name %></h1></center>
 <p><%@author.books.each do |book|%>
   <%=book.title%></br>
   <%end%>
-This author has written an average of <%=@author.average_pages_wrriten%> pages.</p>
+This author has written an average of <%=@author.average_pages_written%> pages.</p>
