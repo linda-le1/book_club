@@ -7,12 +7,12 @@ RSpec.describe "As a visitor", type: :feature do
   @haruki = Author.create(name: "Haruki Murakami")
 
   @book_1 = @haruki.books.create(title:       "The Wind-Up Bird Chronicle",
-                       pages:      607,
-                       publication_year:  "1994")
+                                 pages:      607,
+                                 publication_year:  "1994")
 
   @book_2 = @haruki.books.create(title:       "Norwegian Wood",
-                       pages:      296,
-                       publication_year:  "1987")
+                                 pages:      296,
+                                 publication_year:  "1987")
 
 end
 

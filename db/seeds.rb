@@ -5,12 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-@haruki = Author.create(name: "Haruki Murakami")
+haruki = Author.create(name: "Haruki Murakami")
 
-@book_1 = @haruki.books.create(title:       "The Wind-Up Bird Chronicle",
+book_1 = haruki.books.create(title:       "The Wind-Up Bird Chronicle",
                      pages:      607,
                      publication_year:  "1994")
 
-@book_2 = @haruki.books.create(title:       "Norwegian Wood",
+book_2 = haruki.books.create(title:       "Norwegian Wood",
                      pages:      296,
                      publication_year:  "1987")
+
+amy = Author.create(name: "Amy Tan")
+
+book_3 = amy.books.create(title: "The Joy Luck Club",
+                           pages: 288,
+                           publication_year: "1989")
+
+book_4 = amy.books.create(title: "The Bonesetter's Daughter",
+                           pages: 400,
+                           publication_year: "2001")
