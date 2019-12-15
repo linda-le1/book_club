@@ -35,7 +35,7 @@ end
   end
 
   expect(page).to have_content(@haruki.name)
-  expect(page).to have_content(@amy.name)
+  expect(page).to_not have_content(@amy.name)
 
   expect(page).to have_content(@book_1.title)
   expect(page).to have_content(@book_2.title)
