@@ -29,8 +29,10 @@ end
 
   visit "/books"
 
-  click_on("#{@haruki.name}")
-  expect(current_path).to eq("/authors/#{@haruki.id}")
+  within "#book-#{@book_1.id}" do
+    click_on("#{@haruki.name}")
+    expect(current_path).to eq("/authors/#{@haruki.id}")
+  end
 
   expect(page).to have_content(@haruki.name)
   expect(page).to have_content(@amy.name)

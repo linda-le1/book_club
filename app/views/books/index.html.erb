@@ -3,7 +3,7 @@
 <section id ="book-<%=book.id%>">
   <p><b><%=book.title%></b></br>
       <%book.authors.each do |author|%>
-      By <%=author.name %></br>
+      By <%=link_to author.name, "/authors/#{author.id}" %></br>
       <%end%>
      Number of Pages: <%=book.pages%></br>
     Published in <%=book.publication_year%>
